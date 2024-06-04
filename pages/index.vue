@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <div class="row my-5">
         <div class="col-lg-6">
-          <nuxt-link to="../pengujung/tambah">
+          <nuxt-link to="../pengunjung/tambah">
             <div class="card bg-pengunjung rounded-5">
               <div class="card-body">
                 <h2>Pengunjung</h2>
@@ -49,7 +49,7 @@
   
   
   <style scoped>
-   .color1{
+  .color1{
     background-color:#13d664;
   }
   .color2{
