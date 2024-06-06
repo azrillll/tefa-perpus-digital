@@ -50,7 +50,12 @@
                           <option v-for="(item, i) in objectives" :key="i" :value="item.id">{{ item.nama }}</option>
                       </select>
                   </div>
+                  
                           <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5 abu">kirim</button>
+                          <nuxt-link to="/">
+                                <button type="submit" class=" n btn btn-dark btn-lg rounded-5 px-5 abu p">kembali</button>
+                            </nuxt-link>
+            
               </form>
           </div>
       </div>
@@ -74,7 +79,7 @@ const form = ref({
 const kirimData = async () => {
   console.log(form.value)
   const { error } = await supabase.from("pengunjung").insert([form.value])
-  if(!error) navigateTo("/pengunjung/")
+  if(!error) navigateTo("/pengunjung")
   else throw error
 }
 
@@ -118,5 +123,9 @@ onMounted(() => {
 }
 .abu{
   background-color: #d9d9d9;
+}
+.p{
+  position: fixed;
+  right: 30px;
 }
 </style>

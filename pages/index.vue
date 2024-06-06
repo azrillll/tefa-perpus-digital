@@ -29,25 +29,53 @@
     <div class="container-fluid">
     <div class="row my-5 d-flex justify-content-around-5 ">
       <div class="col-lg-6 ">
+        <nuxt-link to="http://localhost:3000/pengunjung">
           <div class="card rounded-5 color1">
             <div class="card-body d-flex justify-content-around d-flex align-items-center">
-              <h2 class="text"> 3 pengunjung</h2>
-              </div>
+              <h2><span class="no">{{ jml_pengunjung }}</span> pengunjung </h2>
             </div>
-        </div>
+          </div>
+        </nuxt-link>
+      </div>
         <div class="col-lg-6">
-          
-            <div class="card rounded-5 color2">
-              <div class="card-body d-flex justify-content-around d-flex align-items-center">
-                <h2 class="text">140 Buku</h2>
-              </div>
+          <div class="card rounded-5 color2">
+            <div class="card-body d-flex justify-content-around d-flex align-items-center">
+              <nuxt-link to="../buku/">
+                <h2><span class="no">{{ jml_buku }}</span> Buku</h2>
+              </nuxt-link>
             </div>
+          </div>
         </div>
       </div>
     </div>
   </template>
   
+  <script setup>
+  const supabase = useSupabaseClient()
+  const jml_pengunjung = ref(0)
+  const jml_buku = ref(0)
   
+  async function getjml_pengunjung() {
+    const{ error , data, count } = await supabase
+    .from("pengunjung")
+    .select('*', { count: 'exact' })
+    if (count) jml_pengunjung.value = count
+    
+  }
+  async function getjml_buku() {
+    const{ error , data, count } = await supabase
+    .from("Buku")
+    .select('*', { count: 'exact' })
+    if (count) jml_buku.value = count
+    
+  }
+  
+  
+  onMounted(() => {
+    getjml_pengunjung()
+    getjml_buku()
+  })
+  </script>
   <style scoped>
   .color1{
     background-color:#13d664;
