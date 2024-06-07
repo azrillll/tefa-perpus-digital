@@ -11,7 +11,7 @@
                   </form>
               </div>
               <div class="my-3 text-muted">menampilkan 8 dari 24</div>
-              <table class="table">
+              <table class="table table-bordered">
                   <thead>
                       <tr>
                           <td>#</td>
