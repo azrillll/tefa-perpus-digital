@@ -29,7 +29,7 @@
     <div class="container-fluid">
     <div class="row my-5 d-flex justify-content-around-5 ">
       <div class="col-lg-6 ">
-        <nuxt-link to="http://localhost:3000/pengunjung">
+        <nuxt-link to="https://azril-tefa.vercel.app/pengunjung">
           <div class="card rounded-5 color1">
             <div class="card-body d-flex justify-content-around d-flex align-items-center">
               <h2><span class="no">{{ jml_pengunjung }}</span> pengunjung </h2>
